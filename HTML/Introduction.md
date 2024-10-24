@@ -3,6 +3,14 @@
 
 1. [HTML Element Types](#1)
 2. [HTML Attribute Types](#2)
+   1. [Headings](#2a)
+   2. [Paragraphs](#2b)
+   3. [Links](#2c)
+   4. [Images](#2d)
+   5. [Picture](#2e)
+   6. [Color](#2f)
+3. [HTML Empty Tags](#3)
+4. [HTML TAGS](#4)
 
 [-----------------------------------------------------------------------------------------------------------------------------]: #
 
@@ -51,48 +59,327 @@ __<u>HTML Structure</u>__
 
 ![HTML  structure](/HTML/Screenshot%202024-10-22%20143648.png)
 
+You can add comments to your HTML source by using the following syntax:
+
+`<!-- Write your comments here -->`
+
+
 # HTML Element Types <a id="1"></a>
 
-## HTML Headings  
+## HTML Headings <a id="2a"></a> 
 HTML headings are defined with the `<h1>` to `<h6>` tags.
 
 - `<h1>` defines the most important heading. `<h6>` defines the least important heading.
   
-## HTML Paragraphs
+Note: Browsers automatically add some white space (a margin) before and after a heading.
+
+
+  
+## HTML Paragraphs <a id="2b"></a>
   - HTML paragraphs are defined with the `<p>` tag:
 
 
 
 
-## HTML Links
+## HTML Links <a id="2c"></a>
 - HTML links are defined with the `<a>` tag:
 - The link's destination is specified in the href attribute. Attributes are used to provide additional information about HTML elements.
 
-## HTML Images
+By default, links will appear as follows in all browsers:
+
+- An unvisited link is underlined and blue
+- A visited link is underlined and purple
+- An active link is underlined and red  
+
+TIP: Links can be styles in CSS
+
+### `<Target>` Arribute 
+
+By default, the linked page will be displayed in the current browser window. To change this, you must specify another `<target>` for the link.
+
+The `<target>` attribute specifies where to open the linked document.
+
+The `<target>` attribute can have one of the following values:
+
+- _self - Default. Opens the document in the same window/tab as it was clicked
+- _blank - Opens the document in a new window or tab
+- _parent - Opens the document in the parent frame
+- _top - Opens the document in the full body of the window
+
+### Email property
+Use mailto: inside the href attribute to create a link that opens the user's email program (to let them send a new email):
+
+`<a href="mailto:someone@example.com">Send email</a>`
+
+NOTE:
+- For `<a>` and `<area>` elements, the href attribute specifies the URL of the page the link goes to.
+
+- For `<base>` elements, the href attribute specifies the base URL for all relative URLs on a page.
+
+- For `<link>` elements, the href attribute specifies the location (URL) of the external resource (most often a style sheet file).
+
+### `<id>` attribute
+HTML links can be used to create bookmarks, so that readers can jump to specific parts of a web page.
+
+- Use the id attribute (id="value") to define bookmarks in a page
+- Use the href attribute (href="#value") to link to the bookmark
+
+## HTML Images <a id="2d"></a>
 - HTML images are defined with the `<img>` tag.
 - The source file (`src`), alternative text (`alt`), `(width)`, and `(height)` are provided as attributes
+- The `<img>` tag creates a placeholder space within the webpage that the browser displays once the page is rendered. The Image is not part of the HTML file, it only links to a URL of the actual image.
 
->There are two ways to specify the URL in the (`src`)attribute:
->1. Absolute URL - Links to an external image that is hosted on another website
->
->
-> 2. Relative URL - Links to an image that is hosted within the website. Here, the URL does not include the domain name. If the URL begins without a slash, it will be relative to the current page. Example: src="img_girl.jpg". If the URL begins with a slash, it will be relative to the domain. Example: src="/images/img_girl.jpg".
->
->Tip: It is almost always best to use relative URLs. They will not break if you change domain.
+- Can use the `<img>` element inside `<a></a>` to link an image
 
->The required (`alt`) attribute for the `<img>` tag specifies an alternate text for an image:  
+There are two ways to specify the URL in the (`src`)attribute:
+1. Absolute URL - Links to an external image that is hosted on another website
+
+
+2. Relative URL - Links to an image that is hosted within the website. Here, the URL does not include the domain name. If the URL begins without a slash, it will be relative to the current page. Example: src="img_girl.jpg". If the URL begins with a slash, it will be relative to the domain. Example: src="/images/img_girl.jpg".
+
+Tip: It is almost always best to use relative URLs. They will not break if you change domain.
+
+- The required (`alt`) attribute for the `<img>` tag specifies an alternate text for an image:  
 `<img src="img_girl.jpg" alt="Girl with a jacket">`
 
->The `<img>` tag should also contain the width and height attributes, which specify the width and height of the image (in pixels):  
-`<img src="img_girl.jpg" width="500" height="600">`
+- The `<img>` tag should also contain the width and height attributes, which specify the width and height of the image (in pixels):  
+`<img src="img_girl.jpg" width="500" height="600">`  
 
-# HTML Attribute Types (for multiple tags) <a id="2"></a>
+- But the width and height can be overriden by CSS style sheets. So its best to use the inline Style attribute and put the width and height indside that:  
+`<img src="img_girl.jpg" style="width:500px;height:600px;">`  
+
+HTML allows the following image formats:
+- APNG
+- GIF
+- ICO
+- JPEG
+- PNG
+- SVG
+
+### <u>Image Maps</u>
+The HTML `<map>` tag defines an image map. An image map is an image with clickable areas. The areas are defined with one or more `<area>` tags.
+
+The idea behind an image map is that you should be able to perform different actions depending on where in the image you click.
+
+- Use the `<usemap>` attribute: (usemap="#workmap")
+- Create the Image Map `<map>` : (map name="workmap")
+- Create clickable areas using the `<area>` tags. The shape must be defined
+  - rect - defines a rectangular region
+  - circle - defines a circular region
+  - poly - defines a polygonal region
+  - default - defines the entire region
+- Lastly the coordinates must be defined
+
+## HTML Picture <a id="2e"></a>
+
+The `<picture>` element contains one or more `<source>` elements, each referring to different images through the srcset attribute. This way the browser can choose the image that best fits the current view and/or device.
+
+Each `<source>` element has a media attribute that defines when the image is the most suitable
+
+Purpose:
+- Bandwidth - If you have a small screen or device, it is not necessary to load a large image file. The browser will use the first `<source>` element with matching attribute values, and ignore any of the following elements.
+
+- Format support - Some browsers or devices may not support all image formats. By using the `<picture>` element, you can add images of all formats, and the browser will use the first format it recognizes, and ignore any of the following elements.
+
+- The (srcset) in the `<source>` element works like the (src) in the `<img>` tag but is conditional on the (media) query.
+
+
+## HTML Colors <a id="2f"></a>
+HTML colors are specified with predefined color names, or with RGB, HEX, HSL, RGBA, or HSLA values.
+HTML supports 140 standard color names.  
+- Background Color
+- Text Color
+- Border Color  
+`<p style="color:DodgerBlue;">Lorem ipsum...</p>`
+
+
+# HTML Attribute <a id="2"></a>
 
 Attributes usually come in name/value pairs like: name="value"
+
+<u>Single or Double Quotes?</u>  
+In some situations, when the attribute value itself contains double quotes, it is necessary to use single quotes:  
+
+`<p title='John "ShotGun" Nelson'>`
 
 ## Style Attribute
 The style attribute is used to add styles to an element, such as color, font, size, and more:  
 `<p style="color:red;">This is a red paragraph.</p>`
 
+The HTML style attribute has the following syntax:  
+`<tagname style="property:value;">`  
+The property is a CSS property. The value is a CSS value.
+
+<u>CSS Properties for `<style="">` include</u>
+- color
+- font-family
+- font-size
+- text-align
+- background-color
+- border
+
+### Background Image property
+To add a background image on an HTML element, use the HTML style attribute and the CSS background-image property:  
+`<p style="background-image: url('img_girl.jpg');">`
+
+
+<u>Properties:  </u>
+
+>```html
+><style>  
+>body {  
+>  background-image: url('img_girl.jpg');  
+>  background-repeat: no-repeat;  
+>  background-attachment: fixed;  
+>  background-size: cover;  
+>}  
+></style>
+
+- background-repeat: no-repeat; ___stops the image from repeating if its smaller (it will only be displayed once in the top left corner of the element).
+- background-attachment: fixed; ____This property keeps the background image fixed in place while scrolling. The image will not move with the content of the page, creating a parallax effect.
+- background-size: cover;____The background image is resized to cover the entire element, while maintaining its aspect ratio. This means the image will fill the element entirely, but parts of the image may be cropped if the aspect ratios of the image and the element do not match. It will scale up to fit
+- background-size: 100% 100%; ______ The background image is stretched to fit the entire element, both in width and height, regardless of its original aspect ratio. This means that the image will be resized to exactly match the width and height of the element, which can lead to distortion if the aspect ratios differ.
+
+
+
+
+
+
 ## lang Attribute
-You should always include the lang attribute inside the <html> tag, to declare the language of the Web page. This is meant to assist search engines and browsers.
+You should always include the lang attribute inside the `<html>` tag, to declare the language of the Web page. This is meant to assist search engines and browsers.
+
+## Title Attribute
+The title attribute defines some extra information about an element.
+
+The value of the title attribute will be displayed as a tooltip when you mouse over the element:
+`<p title="I'm a tooltip">This is a paragraph.</p>`
+
+## dir Attribute
+How the dir Attribute Works:
+The dir attribute specifies the directionality of text. It can have the following values:
+
+- ltr: Left-to-right (default for most languages like English).
+- rtl: Right-to-left (used for languages like Arabic, Hebrew).
+- auto: Automatically determines the text direction based on the first strong directional character (like a letter or number).
+
+# Empty Tags <a id="3"></a>
+
+## HTML Horizontal Rules
+
+The `<hr>` tag defines a thematic break in an HTML page, and is most often displayed as a horizontal rule.
+
+## HTML Line Breaks
+The HTML `<br>` element defines a line break.
+
+Use `<br>` if you want a line break (a new line) without starting a new paragraph
+
+## Other
+
+- `<img>`
+- `<link>`
+
+# HTML Tags <a id="4"></a>
+
+## `<pre>`
+
+The HTML `<pre>` element defines preformatted text.
+
+The text inside a `<pre>` element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks
+
+## HTML Formatting Elements
+Formatting elements were designed to display special types of text:
+
+>- `<b>` - Bold text: The HTML `<b>` element defines bold text, without any extra importance.
+
+>- `<strong>` - Important text: The HTML `<strong>` element defines text with strong importance. The content inside is typically displayed in bold.
+
+>- `<i>` - Italic text: The HTML `<i>` element defines a part of text in an alternate voice or mood. The content inside is typically displayed in italic.
+
+>- `<em>` - Emphasized text - The HTML `<em>` element defines emphasized text. The content inside is typically displayed in italic.
+>
+>Tip: A screen reader will pronounce the words in `<em>` with an emphasis, using verbal stress.
+
+>- `<mark>` - Marked text: The HTML `<mark>` element defines text that should be marked or highlighted:  
+
+>- `<small>` - Smaller text: The HTML `<small>` element defines smaller text
+
+>- `<del>` - Deleted text: The HTML `<del>` element defines text that has been deleted from a document. Browsers will usually strike a line through deleted text
+
+>- `<ins>` - Inserted text: The HTML `<ins>` element defines a text that has been inserted into a document. Browsers will usually underline inserted text
+
+>- `<sub>` - Subscript text: The HTML `<sub>` element defines subscript text. Subscript text appears half a character below the normal line, and is sometimes rendered in a smaller font. Subscript text can be used for chemical formulas, like H2O:
+
+>- `<sup>` - Superscript text: The HTML `<sup>` element defines superscript text. Superscript text appears half a character above the normal line, and is sometimes rendered in a smaller font. Superscript text can be used for footnotes, like WWW<sup>`[1]`
+
+>- `<blockquote>` for Quotations: The HTML `<blockquote>` element defines a section that is quoted from another source.
+>
+>Browsers usually indent `<blockquote>` elements.
+
+>- `<q>` defines a short quotation. Browsers normally insert quotation marks around the quotation.
+
+>- `<abbr>` defines an abbreviation or an acronym, like "HTML", "CSS". Use the global title attribute to show the description for the abbreviation/acronym when you mouse over the element. 
+
+>- `<cite>` defines the title of a creative work (e.g. a book, a poem, a song, a movie, a painting, a sculpture, etc.). The text in the <cite> element usually renders in italic.
+
+>- `<bdo>` BDO stands for Bi-Directional Override. The HTML `<bdo>` tag is used to override the current text direction:  
+`<bdo dir="rtl">This text will be written from right to left </bdo>`
+
+# CSS
+Cascading Style Sheets (CSS) is used to format the layout of a webpage.
+
+With CSS, you can control the color, font, the size of text, the spacing between elements, how elements are positioned and laid out, what background images or background colors are to be used, different displays for different devices and screen sizes, and much more!
+
+CSS can be added to HTML documents in 3 ways:
+
+Inline - by using the style attribute inside HTML elements
+Internal - by using a `<style>` element in the `<head>` section
+External - by using a `<link>` element to link to an external CSS file
+
+CSS properties:  
+- Color, Font, Size
+- Border, Padding, Margin
+
+## INLINE CSS
+An inline CSS is used to apply a unique style to a single HTML element.
+
+An inline CSS uses the style attribute of an HTML element.
+
+
+## INTERNAL CSS
+An internal CSS is used to define a style for a single HTML page.
+
+An internal CSS is defined in the `<head>` section of an HTML page, within a `<style>` element:
+
+>`<style>`  
+body {background-color: powderblue;}  
+h1   {color: blue;}  
+p    {color: red;}  
+>`</style>`
+
+### CSS Links Styling
+
+> `<style>`
+a:link {  
+  color: green;  
+  background-color: transparent;  
+  text-decoration: none;  
+}  
+>
+>a:visited {  
+  color: pink;  
+  background-color: transparent;  
+  text-decoration: none;  
+}  
+>
+>a:hover {  
+  color: red;  
+  background-color: transparent;  
+  text-decoration: underline;  
+}  
+>
+>a:active {  
+  color: yellow;  
+  background-color: transparent;  
+  text-decoration: underline;  
+}  
+> `</style>`
