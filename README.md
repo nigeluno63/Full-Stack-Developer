@@ -25,3 +25,10 @@ Notes in Markdown
 - Links
 - Images (Picture)
 - Favicon
+
+### OCT-24-2024
+#### HTML
+- Tables
+- Lists
+- Block & Inline Elements
+- Div Element
