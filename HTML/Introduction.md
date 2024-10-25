@@ -9,6 +9,8 @@
    4. [Images](#2d)
    5. [Picture](#2e)
    6. [Color](#2f)
+   7. [Table](#2g)
+   8. [Lists](#2h) 
 3. [HTML Empty Tags](#3)
 4. [HTML TAGS](#4)
 
@@ -192,6 +194,140 @@ HTML supports 140 standard color names.
 - Border Color  
 `<p style="color:DodgerBlue;">Lorem ipsum...</p>`
 
+## HTML Tables <a id="2g"></a>
+- Each table cell is defined by a `<td>` and a `</td>` tag.
+- Each table row starts with a `<tr>` and ends with a `</tr>` tag.
+- You can have as many rows as you like in a table; just make sure that the number of cells are the same in each row.
+- In those cases use the `<th>` tag instead of the `<td>` tag. By default, the text in `<th>` elements are bold and centered
+
+### Borders
+- To add a border, use the CSS border property on table, th, and td elements:
+>```CSS
+> table, th, td {
+>  border: 1px solid black;
+>}
+
+- To avoid having double borders like in the example above, set the CSS border-collapse property to collapse: (  border-collapse: collapse;)
+
+<u>Border Properties</u>
+- border-color
+- border-style
+- ![Border Style](/HTML/border_style.png)
+- border-radius
+- background-color
+
+### Table Sizes
+- Use the style attribute with the width or height properties to specify the size of a table, row or column.
+- style="width:100%" || style="height:200px;"
+- Using a percentage as the size unit for a width means how wide will this element be compared to its parent element
+
+### Table Headers
+- You can add a `<caption>` that serves as a heading for the entire table.
+
+### Padding and Spacing
+-  HTML tables can adjust the padding inside the cells, and also the space between the cells.
+-  Use CSS padding property on ceels and border-spacing property on table 
+
+### Colspan & Rowspan
+- To make a cell span over multiple columns, use the (colspan) attribute
+- To make a cell span over multiple rows, use the (rowspan) attribute
+
+### Styling
+Use CSS styling to make tables look better
+- To style every other table row element, use the :nth-child(even) selector.
+- If you specify borders only at the bottom of each table row, you will have a table with horizontal dividers. Add the border-bottom property to all tr elements to get horizontal dividers. NOTE: it only works if the borders are collapsed.
+- Use the :hover selector on tr to highlight table rows on mouse over.
+
+```CSS
+>tr:hover {background-color: #D6EEEE;}
+```
+
+
+### Colgroup
+The `<colgroup>` element is used to style specific columns of a table.
+
+- The `<colgroup>` element should be used as a container for the column specifications.
+- Each group is specified with a `<col>` element.
+- The span attribute specifies how many columns that get the style.
+- The style attribute specifies the style to give the columns.
+
+```CSS
+<table>
+  <colgroup>
+    <col span="2" style="background-color: #D6EEEE">
+  </colgroup>
+  <tr>
+    <th>MON</th>
+    <th>TUE</th>
+    <th>WED</th>
+    <th>THU</th>
+```
+
+- The `<colgroup>` tag must be a child of a `<table>` element and should be placed before any other table elements, like `<thead>`, `<tr>`, `<td>` etc., but after the `<caption>` element, if present.
+  
+
+There is only a very limited selection of CSS properties that are allowed to be used in the colgroup:
+- width property
+- visibility property
+- background properties
+- border properties
+
+If you want to style columns in the middle of a table, insert a "empty" `<col>` element (with no styles) for the columns before:
+
+## HTML Lists <a id="2h"></a>
+
+### Unordered Lists
+- By default are black dots: Uses the `<ul>` tag  
+  
+Each list item starts with the `<li>` tag
+### Order Lists
+- By default are numbers: uses the `<ol>`
+- Use start attribute to start the list from a number other than 1 (start="50")
+
+### Description Lists
+- A description list is a list of terms, with a description of each term.
+- The `<dl>` tag defines the description list, the `<dt>` tag defines the term (name), and the `<dd>` tag describes each term
+
+```HTML
+<dl>
+  <dt>Coffee</dt>
+  <dd>- black hot drink</dd>
+  <dt>Milk</dt>
+  <dd>- white cold drink</dd>
+</dl>
+```
+
+- Use the CSS style="List-Style-Type:" to choose the the style
+- Lists can be nested
+- Lists can be styles horizontally using the CSS propety float:left
+
+
+
+# HTML Block and Inline Elements
+
+### Block-Level Elements
+- A block-level element always starts on a new line, and the browsers automatically add some space (a margin) before and after the element.
+- A block-level element always takes up the full width available (stretches out to the left and right as far as it can).
+- ![Blockl-level-Elements](/HTML/block-level-element.png)
+- The `<div>` element is often used as a container for other HTML elements.
+
+
+### Inline Elements
+- An inline element does not start on a new line.
+- An inline element only takes up as much width as necessary.
+- ![Inline Elements](/HTML/inline-span-element.png)
+- The `<span>` element is an inline container used to mark up a part of a text, or a part of a document.
+
+## Div Element
+- a block element by default and so it takes all available width and has line breaks before and after
+- The `<div>` element is often used to group sections of a web page together: Used as a container
+- To center a `<div>` element who width has been changed, use style="margin:auto;"
+
+Usually `<div>` elements stack vertically if there are multiple. If you want to align them side by side there are a couple of methods using CSS properties:
+- style="float:left;" : Although this wasn't originally meant to align `<div>` elements side by side.
+- style="display:inline-block;" : Removes the line-breaks from the div blocks and displays them side by side
+- Flexbox: To make the CSS flex method work, surround the `<div>` elements with another `<div>` element and give it the status as a flex container.
+
 
 # HTML Attribute <a id="2"></a>
 
@@ -217,6 +353,7 @@ The property is a CSS property. The value is a CSS value.
 - text-align
 - background-color
 - border
+
 
 ### Background Image property
 To add a background image on an HTML element, use the HTML style attribute and the CSS background-image property:  
@@ -350,36 +487,39 @@ An internal CSS is used to define a style for a single HTML page.
 
 An internal CSS is defined in the `<head>` section of an HTML page, within a `<style>` element:
 
->`<style>`  
-body {background-color: powderblue;}  
-h1   {color: blue;}  
-p    {color: red;}  
->`</style>`
+>```CSS
+><style>  
+>body {background-color: powderblue;}  
+>h1   {color: blue;}  
+>p    {color: red;}  
+></style>
 
 ### CSS Links Styling
 
-> `<style>`
-a:link {  
-  color: green;  
-  background-color: transparent;  
-  text-decoration: none;  
-}  
+>```CSS
+><style>
+>a:link {  
+>  color: green;  
+>  background-color: transparent;  
+>  text-decoration: none;  
+>}  
 >
 >a:visited {  
-  color: pink;  
-  background-color: transparent;  
-  text-decoration: none;  
-}  
+>  color: pink;  
+>  background-color: transparent;  
+>  text-decoration: none;  
+>}  
 >
 >a:hover {  
-  color: red;  
-  background-color: transparent;  
-  text-decoration: underline;  
-}  
+>  color: red;  
+>  background-color: transparent;  
+>  text-decoration: underline;  
+>}  
 >
 >a:active {  
-  color: yellow;  
-  background-color: transparent;  
-  text-decoration: underline;  
-}  
-> `</style>`
+>  color: yellow;  
+>  background-color: transparent;  
+>  text-decoration: underline;  
+>}  
+></style>
+

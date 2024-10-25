@@ -39,8 +39,49 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-color: bisque;
         }
+
+  /*-------------------------------------First TABLE FORMATTING --------------------------------------------------------*/
+      
+                .table_first {
+            border-spacing: 15px;
+            border-radius: 15px;
+            background-color: beige;
+        }
+
+        .table_first table, 
+        .table_first th, 
+        .table_first td {
+            border: 2px solid chocolate;
+        }
+
+
+        .table_first th, 
+        .table_first td {
+            padding: 20px;
+        }
+
+  /*-------------------------------------ZEBRA TABLE FORMATTING --------------------------------------------------------*/
+
+        .zebra_table{
+            border-collapse: collapse;
+        }
+
+        .zebra_table tr:nth-child(even),
+        .zebra_table td:nth-child(even),
+        .zebra_table th:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+
+        .zebra_table tr {
+            border-bottom: 1px solid #c50000;      
+        }
+        .zebra_table tr:hover td:first-child {
+            background-color: blue;    
+        }
+    
     </style>
 
+    
 
 </head>
 
@@ -166,7 +207,89 @@
         <img src="TV-3.jpg" alt="FMA Anime" max-width="500px">
     </picture>
     
+    <h3>TABLE</h3>
 
+    <table class="table_first" style="width: 50%; height: 200px; margin: 0 auto;">
+        <caption>The is a table example</caption>
+        <tr style="text-align: center;">
+            <th style="border-top-left-radius: 15px;">Name</th>
+            <th>Place</th>
+            <th>Animal</th>
+            <th>Thing</th>
+        </tr>
+        <tr style="text-align: center;">
+            <td rowspan="2">Nigel</td>
+            <td>Dubai</td>
+            <td colspan="2">Cat</td>
+        </tr>
+        <tr>
+            <td>Dubai</td>
+            <td>Cat</td>
+            <td>Yo-Yo</td>
+        </tr>
+    </table>
+
+    <h2>Zebra Striped Table</h2>
+    <p>For zebra-striped tables, use the nth-child() selector and add a background-color to all even (or odd) table rows:</p>
+    
+    <table class="zebra_table">
+        <colgroup>
+            <col span="1">
+            <col span="2" style="background-color: pink">
+          </colgroup>
+      <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Points</th>
+      </tr>
+      <tr>
+      <td>Peter</td>
+      <td>Griffin</td>
+      <td>$100</td>
+      </tr>
+      <tr>
+      <td>Lois</td>
+      <td>Griffin</td>
+      <td>$150</td>
+      </tr>
+      <tr>
+      <td>Joe</td>
+      <td>Swanson</td>
+      <td>$300</td>
+      </tr>
+      <tr>
+      <td>Cleveland</td>
+      <td>Brown</td>
+      <td>$250</td>
+      </tr>
+    </table>
+
+    <h2>Lists</h2>
+ 
+    <p>Unordered List</p>
+    <ul style="list-style-type: armenian;">
+        <li>Pan</li>
+        <li>Box</li>
+        <li>Monkey</li>
+    </ul>
+    <div>
+        <p>Ordered List</p>
+        <ol>
+            <li>Pan</li>
+            <li>Box</li>
+            <li>Car</li>
+        </ol>    
+    </div>
+
+    <p>Description list</p>
+    <dl>
+        <dt>Coffee</dt>
+            <dd>-Coffee Beans</dd>
+        <dt>Tea</dt>
+            <dd>-Tea Leaves</dd>
+        <dt>Juice</dt>
+            <dd>-Fruit Juices</dd>
+    </dl>
 
 </body>
 
