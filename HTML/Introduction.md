@@ -2,17 +2,28 @@
 # Table of Contents
 
 1. [HTML Element Types](#1)
-2. [HTML Attribute Types](#2)
-   1. [Headings](#2a)
-   2. [Paragraphs](#2b)
-   3. [Links](#2c)
-   4. [Images](#2d)
-   5. [Picture](#2e)
-   6. [Color](#2f)
-   7. [Table](#2g)
-   8. [Lists](#2h) 
+   1. [Headings](#1a)
+   2. [Paragraphs](#1b)
+   3. [Links](#1c)
+   4. [Images](#1d)
+   5. [Picture](#1e)
+   6. [Color](#1f)
+   7. [Table](#1g)
+   8. [Lists](#1h) 
+   9. [HTML Block and Inline Elements](#1i)
+   10. [iframe](#1j)     
+2.     [HTML Attribute Types](#2)
+   1.  [style](#2a)
+   2.  [lang](#2b)
+   3.  [title](#2c)
+   4.  [dir](#2d)
+   5.  [class](#2e)
+   6.  [id](#2f)
+
 3. [HTML Empty Tags](#3)
 4. [HTML TAGS](#4)
+5. [CSS](#5)
+6. [JavaScript](#6)
 
 [-----------------------------------------------------------------------------------------------------------------------------]: #
 
@@ -68,7 +79,7 @@ You can add comments to your HTML source by using the following syntax:
 
 # HTML Element Types <a id="1"></a>
 
-## HTML Headings <a id="2a"></a> 
+## HTML Headings <a id="1a"></a> 
 HTML headings are defined with the `<h1>` to `<h6>` tags.
 
 - `<h1>` defines the most important heading. `<h6>` defines the least important heading.
@@ -77,13 +88,13 @@ Note: Browsers automatically add some white space (a margin) before and after a 
 
 
   
-## HTML Paragraphs <a id="2b"></a>
+## HTML Paragraphs <a id="1b"></a>
   - HTML paragraphs are defined with the `<p>` tag:
 
 
 
 
-## HTML Links <a id="2c"></a>
+## HTML Links <a id="1c"></a>
 - HTML links are defined with the `<a>` tag:
 - The link's destination is specified in the href attribute. Attributes are used to provide additional information about HTML elements.
 
@@ -126,7 +137,7 @@ HTML links can be used to create bookmarks, so that readers can jump to specific
 - Use the id attribute (id="value") to define bookmarks in a page
 - Use the href attribute (href="#value") to link to the bookmark
 
-## HTML Images <a id="2d"></a>
+## HTML Images <a id="1d"></a>
 - HTML images are defined with the `<img>` tag.
 - The source file (`src`), alternative text (`alt`), `(width)`, and `(height)` are provided as attributes
 - The `<img>` tag creates a placeholder space within the webpage that the browser displays once the page is rendered. The Image is not part of the HTML file, it only links to a URL of the actual image.
@@ -172,7 +183,7 @@ The idea behind an image map is that you should be able to perform different act
   - default - defines the entire region
 - Lastly the coordinates must be defined
 
-## HTML Picture <a id="2e"></a>
+## HTML Picture <a id="1e"></a>
 
 The `<picture>` element contains one or more `<source>` elements, each referring to different images through the srcset attribute. This way the browser can choose the image that best fits the current view and/or device.
 
@@ -186,7 +197,7 @@ Purpose:
 - The (srcset) in the `<source>` element works like the (src) in the `<img>` tag but is conditional on the (media) query.
 
 
-## HTML Colors <a id="2f"></a>
+## HTML Colors <a id="1f"></a>
 HTML colors are specified with predefined color names, or with RGB, HEX, HSL, RGBA, or HSLA values.
 HTML supports 140 standard color names.  
 - Background Color
@@ -194,7 +205,7 @@ HTML supports 140 standard color names.
 - Border Color  
 `<p style="color:DodgerBlue;">Lorem ipsum...</p>`
 
-## HTML Tables <a id="2g"></a>
+## HTML Tables <a id="1g"></a>
 - Each table cell is defined by a `<td>` and a `</td>` tag.
 - Each table row starts with a `<tr>` and ends with a `</tr>` tag.
 - You can have as many rows as you like in a table; just make sure that the number of cells are the same in each row.
@@ -254,7 +265,7 @@ The `<colgroup>` element is used to style specific columns of a table.
 ```CSS
 <table>
   <colgroup>
-    <col span="2" style="background-color: #D6EEEE">
+    <col span="2" style="background-color:red">
   </colgroup>
   <tr>
     <th>MON</th>
@@ -274,7 +285,7 @@ There is only a very limited selection of CSS properties that are allowed to be 
 
 If you want to style columns in the middle of a table, insert a "empty" `<col>` element (with no styles) for the columns before:
 
-## HTML Lists <a id="2h"></a>
+## HTML Lists <a id="1h"></a>
 
 ### Unordered Lists
 - By default are black dots: Uses the `<ul>` tag  
@@ -303,7 +314,7 @@ Each list item starts with the `<li>` tag
 
 
 
-# HTML Block and Inline Elements
+## HTML Block and Inline Elements <a id="1i"></a>
 
 ### Block-Level Elements
 - A block-level element always starts on a new line, and the browsers automatically add some space (a margin) before and after the element.
@@ -327,6 +338,35 @@ Usually `<div>` elements stack vertically if there are multiple. If you want to 
 - style="float:left;" : Although this wasn't originally meant to align `<div>` elements side by side.
 - style="display:inline-block;" : Removes the line-breaks from the div blocks and displays them side by side
 - Flexbox: To make the CSS flex method work, surround the `<div>` elements with another `<div>` element and give it the status as a flex container.
+- CSS Grid: Can set up a class="gridcontainer" and style a column grid (specify the width of each column). Apply the class to a div container for the child div elements.
+
+## iframe <a id="1j"></a>
+
+- An HTML iframe is used to display a web page within a web page.
+- The HTML `<iframe>` tag specifies an inline frame.
+
+``` HTML 
+<iframe src="url" title="description"></iframe>
+```
+Tip: It is a good practice to always include a title attribute for the `<iframe>`. This is used by screen readers to read out what the content of the iframe is.
+
+- Use the height and width attributes to specify the size of the iframe.
+- Or you can add the style attribute and use the CSS height and width properties
+- To remove the border, add the style attribute and use the CSS border property:- style="border:none;"
+
+### Iframe - Target for a Link
+- The target attribute of the link must refer to the name attribute of the iframe:
+
+```HTML
+<iframe src="demo_iframe.htm" name="iframe_a" title="Iframe Example"></iframe>
+
+<p><a href="https://www.w3schools.com" target="iframe_a">W3Schools.com</a></p>
+```
+
+
+
+
+
 
 
 # HTML Attribute <a id="2"></a>
@@ -338,7 +378,7 @@ In some situations, when the attribute value itself contains double quotes, it i
 
 `<p title='John "ShotGun" Nelson'>`
 
-## Style Attribute
+## Style Attribute <a id="2a"></a>
 The style attribute is used to add styles to an element, such as color, font, size, and more:  
 `<p style="color:red;">This is a red paragraph.</p>`
 
@@ -382,22 +422,88 @@ To add a background image on an HTML element, use the HTML style attribute and t
 
 
 
-## lang Attribute
+## lang Attribute <a id="2b"></a>
 You should always include the lang attribute inside the `<html>` tag, to declare the language of the Web page. This is meant to assist search engines and browsers.
 
-## Title Attribute
+## Title Attribute <a id="2c"></a>
 The title attribute defines some extra information about an element.
 
 The value of the title attribute will be displayed as a tooltip when you mouse over the element:
 `<p title="I'm a tooltip">This is a paragraph.</p>`
 
-## dir Attribute
+## dir Attribute <a id="2d"></a>
 How the dir Attribute Works:
 The dir attribute specifies the directionality of text. It can have the following values:
 
 - ltr: Left-to-right (default for most languages like English).
 - rtl: Right-to-left (used for languages like Arabic, Hebrew).
 - auto: Automatically determines the text direction based on the first strong directional character (like a letter or number).
+
+
+## Class Attribute <a id="2e"></a>
+
+- The class attribute is often used to point to a class name in a style sheet. It can also be used by a JavaScript to access and manipulate elements with the specific class name.
+
+Tip: The class attribute can be used on any HTML element.
+Note: The class name is case sensitive!
+
+- The Syntax For Class  
+To create a class; write a period (.) character, followed by a class name. Then, define the CSS properties within curly braces {}:
+- To define multiple classes, separate the class names with a space, e.g. <div class="city main">. The element will be styled according to all the classes specified.
+- JavaScript can access elements with a specific class name with the getElementsByClassName() method:
+
+```JavaScript
+<script>
+function myFunction() {
+  var x = document.getElementsByClassName("city");
+  for (var i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+}
+</script>
+```
+
+## id Attribute <a id="2f"></a>
+
+- The id attribute specifies a unique id for an HTML element. The value of the id attribute must be unique within the HTML document.
+- The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within curly braces {}.
+```CSS
+<style>
+#myHeader {
+  background-color: lightblue;
+  color: black;
+  padding: 40px;
+  text-align: center;
+}
+</style>
+```
+
+- A class name can be used by multiple HTML elements, while an id name must only be used by one HTML element within the page:
+
+### Used as a bookmark
+- First, create a bookmark with the id attribute
+- Then, add a link to the bookmark ("Jump to Chapter 4"), from within the same page
+
+```CSS
+<h2 id="C4">Chapter 4</h2>
+
+<a href="#C4">Jump to Chapter 4</a>
+```
+
+### Used in JavaScript
+- JavaScript can access an element with a specific id with the getElementById() method:
+```JavaScript
+<script>
+function displayResult() {
+  document.getElementById("myHeader").innerHTML = "Have a nice day!";
+}
+</script>
+```
+
+
+
+
+
 
 # Empty Tags <a id="3"></a>
 
@@ -461,7 +567,7 @@ Formatting elements were designed to display special types of text:
 >- `<bdo>` BDO stands for Bi-Directional Override. The HTML `<bdo>` tag is used to override the current text direction:  
 `<bdo dir="rtl">This text will be written from right to left </bdo>`
 
-# CSS
+# CSS <a id="5"></a>
 Cascading Style Sheets (CSS) is used to format the layout of a webpage.
 
 With CSS, you can control the color, font, the size of text, the spacing between elements, how elements are positioned and laid out, what background images or background colors are to be used, different displays for different devices and screen sizes, and much more!
@@ -523,3 +629,17 @@ An internal CSS is defined in the `<head>` section of an HTML page, within a `<s
 >}  
 ></style>
 
+# JavaScript <a id="6"></a>
+JavaScript makes HTML pages more dynamic and interactive.
+
+- The HTML `<script>` tag is used to define a client-side script (JavaScript).
+- The `<script>` element either contains script statements, or it points to an external script file through the (src) attribute.
+- Common uses for JavaScript are image manipulation, form validation, and dynamic changes of content.
+- To select an HTML element, JavaScript most often uses the document.getElementById() method.
+- The HTML `<noscript>` tag defines an alternate content to be displayed to users that have disabled scripts in their browser or have a browser that doesn't support scripts
+```Javascript
+<script>
+document.getElementById("demo").innerHTML = "Hello JavaScript!";
+</script>
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
+```

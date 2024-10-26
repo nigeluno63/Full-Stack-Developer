@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial scale=1.0">
     <meta name="theme-color" content="#fff000">
-    <meta http-equiv="refresh" content="5">
     <title>Page Title</title>
     <link rel="icon" type="image/x-icon" href="/HTML/favicon.ico">
 
@@ -79,6 +78,22 @@
             background-color: blue;    
         }
     
+  /*-------------------------------------DIV FORMATTING --------------------------------------------------------*/
+
+        .mycontainer {
+            display: flex;
+        }
+
+        .mycontainer > Div {
+            width: 20%;
+            text-align: center;
+        }
+
+        .gridcontainer {
+            display: grid;
+            grid-template-columns: 20% 40% 40%;
+        }
+
     </style>
 
     
@@ -290,6 +305,56 @@
         <dt>Juice</dt>
             <dd>-Fruit Juices</dd>
     </dl>
+
+    <h2>Experimenting with <span style="color: #c50000;">Div</span> Elements</h2>
+    <p>This is using Flex Box with the child elements set to 20% width</p>
+    <div class="mycontainer">
+        <div style="background-color: cadetblue; border-radius: 5px;">
+            <h5>Name</h5>
+            <p>Nigel</p>
+            <p>Likes Pizza</p>
+        </div>
+        
+        <div style="background-color: rgb(178, 216, 143); border-radius: 5px;">
+            <h5>Name</h5>
+            <p>Nigel</p>
+            <p>Likes Pizza</p>
+        </div>
+        
+        <div style="background-color: rgb(196, 194, 120); border-radius: 5px;">
+            <h5>Name</h5>
+            <p>Nigel</p>
+            <p>Likes Pizza</p>
+        </div>    
+    </div>
+
+    <p>This is using CSS Grid with the column %: 20% 40% 40 %</p>
+    <div class="gridcontainer">
+        <div style="background-color: cadetblue; border-radius: 5px;">
+            <h5>Name</h5>
+            <p>Nigel</p>
+            <p>Likes Pizza</p>
+        </div>
+        
+        <div style="background-color: rgb(178, 216, 143); border-radius: 5px;">
+            <h5>Name</h5>
+            <p>Nigel</p>
+            <p>Likes Pizza</p>
+        </div>
+        
+        <div style="background-color: rgb(196, 194, 120); border-radius: 5px;">
+            <h5>Name</h5>
+            <p>Nigel</p>
+            <p>Likes Pizza</p>
+        </div>    
+    </div>
+
+    <h2>Testing out iframes</h2>
+
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" name="iframe_test" title="Google iframe" style="border:none"></iframe>
+
+    <p>iframe as the target frame of a link</p>
+    <a href="https://www.w3schools.com"  target="iframe_test">Link to W3schools sent to the iframe above</a>
 
 </body>
 
