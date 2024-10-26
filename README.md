@@ -32,3 +32,11 @@ Notes in Markdown
 - Lists
 - Block & Inline Elements
 - Div Element
+
+### OCT-25-2024
+HTML:
+- Classes
+- Id
+- Iframes
+- JavaScript
+- File Paths
