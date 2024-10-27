@@ -40,3 +40,10 @@ HTML:
 - Iframes
 - JavaScript
 - File Paths
+
+
+### OCT-26-2024
+HTML:
+- Layouts
+- Responsiveness
+
