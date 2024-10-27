@@ -12,6 +12,7 @@
    8. [Lists](#1h) 
    9. [HTML Block and Inline Elements](#1i)
    10. [iframe](#1j)     
+   11. [Layout](#1k)
 2.     [HTML Attribute Types](#2)
    1.  [style](#2a)
    2.  [lang](#2b)
@@ -362,6 +363,57 @@ Tip: It is a good practice to always include a title attribute for the `<iframe>
 
 <p><a href="https://www.w3schools.com" target="iframe_a">W3Schools.com</a></p>
 ```
+
+## Head Element <a id="1k"></a>
+- The HTML `<head>` element is a container for the following elements: `<title>`, `<style>`, `<meta>`, `<link>`, `<script>`, and `<base>`.
+- The `<head>` element is a container for metadata (data about data). HTML metadata is data about the HTML document. Metadata is not displayed. Metadata typically define the document title, character set, styles, scripts, and other meta information
+
+### `<Title>` Element
+The `<title>` element:
+- defines a title in the browser toolbar
+- provides a title for the page when it is added to favorites
+- displays a title for the page in search engine-results
+
+### `<meta>` Element
+The `<meta>` element is typically used to specify the 
+- character set, page description (Browser)
+- keywords (Search Engines)
+- author of the document
+- viewport settings (Browser)
+
+```HTML
+<meta charset="UTF-8">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="description" content="Free Web tutorials">
+<meta name="author" content="John Doe">
+<meta http-equiv="refresh" content="30">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+- The content attribute gives the value associated with the http-equiv or name attribute.
+- You should include: `<meta name="viewport" content="width=device-width, initial-scale=1.0">` in all your web pages. This gives the browser instructions on how to control the page's dimensions and scaling. The width=device-width part sets the width of the page to follow the screen-width of the device. The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.
+
+- `<base>`  element specifies the base URL and/or target for all relative URLs in a page. The `<base>` tag must have either an href or a target attribute present, or both. There can only be one single `<base>` element in a document!
+
+
+# HTML Layout ELements <a id="1k"></a>
+- HTML has several semantic elements that define the different parts of a web page:
+- ![HTML Semantics Layout](/HTML/HTML%20Semantics%20layout.png)
+
+There are four different techniques to create multicolumn layouts. Each technique has its pros and cons:
+
+- CSS framework
+- CSS float property
+- CSS flexbox
+- CSS grid
+
+### CSS framework
+If you want to create your layout fast, you can use a CSS framework, like W3.CSS or Bootstrap.
+
+### CSS Float property
+It is common to do entire web layouts using the CSS float property. Float is easy to learn - you just need to remember how the float and clear properties work. 
+Disadvantages: Floating elements are tied to the document flow, which may harm the flexibility.
+
+
 
 
 
