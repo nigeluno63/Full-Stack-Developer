@@ -1,5 +1,5 @@
 This repository is just for me to learn how to code with HTML, CSS, JavaScript, and additional backend languages for Full-Stack Development. 
-I'm new to this space and have no previous coding experience so I might be using the wrong terms or certain tools incorrectly.
+I'm new to this space and have no previous coding experience, so I might be using the wrong terms or certain tools incorrectly.
 
 ### OCT-22-2024
 #### HTML Intro:
@@ -47,3 +47,11 @@ HTML:
 - Layouts
 - Responsiveness
 
+### OCT-27-2024
+HTML
+- Semantics
+- Style Guide
+- Entities, Symbols, Emojis
+- Charsets 
+- URL Encode
+- XHTML
