@@ -13,7 +13,10 @@
    9. [HTML Block and Inline Elements](#1i)
    10. [iframe](#1j)     
    11. [Layout](#1k)
-2.     [HTML Attribute Types](#2)
+   12. [Computer Code ](#1l)
+   13. [semantics ](#1m)
+    
+2. [HTML Attribute Types](#2)
    1.  [style](#2a)
    2.  [lang](#2b)
    3.  [title](#2c)
@@ -25,6 +28,9 @@
 4. [HTML TAGS](#4)
 5. [CSS](#5)
 6. [JavaScript](#6)
+7. [HTML Entities](#7)
+8. [XHTML](#8)
+9. [HTML FORMS](#9)
 
 [-----------------------------------------------------------------------------------------------------------------------------]: #
 
@@ -416,9 +422,97 @@ Disadvantages: Floating elements are tied to the document flow, which may harm t
 
 
 
+# HTML Computer Code <a id="1l"></a>
+- HTML contains several elements for defining user input and computer code.
+- The HTML `<kbd>` element is used to define keyboard input. The content inside is displayed in the browser's default monospace font.
+```HTML
+<p>Save the document by pressing <kbd>Ctrl + S</kbd></p>
+```
+- The HTML `<samp>` element is used to define sample output from a computer program. The content inside is displayed in the browser's default monospace font.
+```HTML
+<p><samp>File not found.<br>Press F1 to continue</samp></p>
+```
+- The HTML `<code>` element  is used to define a piece of computer code. The content inside is displayed in the browser's default monospace font.
+```HTML
+<code>
+x = 5;
+y = 6;
+z = x + y;
+</code>
+```
+Notice that the `<code>` element does not preserve extra whitespace and line-breaks. To fix this, you can put the `<code>` element inside a `<pre>` element.
+
+- The HTML `<var>` element  is used to define a variable in programming or in a mathematical expression. The content inside is typically displayed in italic.
+```HTML
+<p>The area of a triangle is: 1/2 x <var>b</var> x <var>h</var>, where <var>b</var> is the base, and <var>h</var> is the vertical height.</p>
+```
 
 
+# HTML Semantic Elements <a id="1m"></a>
+- A semantic element clearly describes its meaning to both the browser and the developer.
 
+### `<section>`
+- The `<section>` element defines a section in a document.
+- According to W3C's HTML documentation: "A section is a thematic grouping of content, typically with a heading."
+- 
+Examples of where a `<section>` element can be used:
+- Chapters
+- Introduction
+- News items
+- Contact information
+
+
+### `<article>`
+- The `<article>` element specifies independent, self-contained content.
+- An article should make sense on its own, and it should be possible to distribute it independently from the rest of the web site.
+  
+Examples of where the <article> element can be used:
+- Forum posts
+- Blog posts
+- User comments
+- Product cards
+- Newspaper articles
+
+### `<header>`
+- The `<header>` element represents a container for introductory content or a set of navigational links.
+```HTML
+<article>
+  <header>
+    <h1>What Does WWF Do?</h1>
+    <p>WWF's mission:</p>
+  </header>
+  <p>WWF's mission is to stop the degradation of our planet's natural environment,
+  and build a future in which humans live in harmony with nature.</p>
+</article>
+```
+
+### `<footer>`
+- The `<footer>` element defines a footer for a document or section.
+
+A `<footer>` element typically contains:
+- authorship information
+- copyright information
+- contact information
+- sitemap
+- back to top links
+- related documents
+
+### `<nav>`
+- The `<nav>` element defines a set of navigation links.
+- Notice that NOT all links of a document should be inside a `<nav>` element. The `<nav>` element is intended only for major blocks of navigation links.
+
+### `<aside>`
+- The `<aside>` element defines some content aside from the content it is placed in (like a sidebar).
+- The `<aside>` content should be indirectly related to the surrounding content.
+
+### `<figure>` & `<figcaption>`
+
+- The `<figure>` tag specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+- he `<figcaption>` tag defines a caption for a `<figure>` element. The `<figcaption>` element can be placed as the first or as the last child of a `<figure>` element.
+
+
+### List of Semantic Elements
+![Semantic Elements](/HTML/SemanticElements.png)
 
 
 # HTML Attribute <a id="2"></a>
@@ -695,3 +789,118 @@ document.getElementById("demo").innerHTML = "Hello JavaScript!";
 </script>
 <noscript>Sorry, your browser does not support JavaScript!</noscript>
 ```
+
+# HTML ENTITES <a id="7"></a>
+
+- Reserved characters in HTML must be replaced with entities:  
+`<` (less than) = `&lt;`  
+`>` (greather than) = `&gt;`
+- Entities names are written as: &<em>entityname</em>
+- Entities numbers are written as: &#<em>entitynumber</em>
+- To display a less than sign (<) we must write: `&lt;` or `&#60;`
+- `&nbsp;` is a non-breaking space which you can use to keep words together incase the page width chnages and those words end up getting cut with one at the end of one line and the other at the beginnng of the next line.(Eg.Mr.Smith, 10 kg)
+- ![HTML Entities](/HTML/html_entities.png)
+
+### Diacritical marks
+- A diacritical mark is a "glyph" added to a letter.
+- Some diacritical marks, like grave ( &#768; )  and acute ( &#769; ) are called accents.
+- Diacritical marks can be used in combination with alphanumeric characters to produce a character that is not present in the character set (encoding) used in the page.
+- ![diacritical marks](/HTML/diacritical_marks.png)
+
+## HTML Symbol Entities
+
+To add such symbols to an HTML page, you can use the entity name or the entity number (a decimal or a hexadecimal reference) for the symbol:
+```HTML
+<p>I will display &euro;</p>
+<p>I will display &#8364;</p>
+<p>I will display &#x20AC;</p>
+```
+Full list of UTF-8 Reference: https://www.w3schools.com/charsets/ref_html_utf8.asp
+
+
+## Character Sets
+### The ASCII Character Set
+ASCII was the first character encoding standard for the web. It defined 128 different characters that could be used on the internet:
+
+- English letters (A-Z)  
+- Numbers (0-9)  
+- Special characters like ! $ + - ( ) @ < >.  
+
+### The ANSI Character Set
+ANSI (Windows-1252) was the original Windows character set:
+
+- Identical to ASCII for the first 127 characters
+- Special characters from 128 to 159
+- Identical to UTF-8 from 160 to 255
+
+
+### The ISO-8859-1 Character Set
+ISO-8859-1 was the default character set for HTML 4. This character set supported 256 different character codes. HTML 4 also supported UTF-8.
+
+- Identical to ASCII for the first 127 characters
+- Does not use the characters from 128 to 159
+- Identical to ANSI and UTF-8 from 160 to 255
+
+### The UTF-8 Character Set
+
+- is identical to ASCII for the values from 0 to 127
+- Does not use the characters from 128 to 159
+- Identical to ANSI and 8859-1 from 160 to 255
+- Continues from the value 256 to 10 000 characters
+
+## URL
+
+- A URL is another word for a web address.
+- A URL can be composed of words (e.g. w3schools.com), or an Internet Protocol (IP) address (e.g. 192.68.20.50).
+
+The syntax is: `scheme://prefix.domain:port/path/filename`
+- scheme - defines the type of Internet service (most common is http or https)
+- prefix - defines a domain prefix (default for http is www)
+- domain - defines the Internet domain name (like w3schools.com)
+- port - defines the port number at the host (default for http is 80)
+- path - defines a path at the server (If omitted: the root directory of the site)
+- filename - defines the name of a document or resource 
+
+### Common url schemes
+
+- http: HyperText Transfer Protocol
+- https: Secure HyperText Transfer Protocol
+- ftp: File Transfer protocol
+- file
+
+#### URL Encoding
+- URLs can only be sent over the Internet using the ASCII character-set. 
+- If a URL contains characters outside the ASCII set, the URL has to be converted: URL encoding replaces non-ASCII characters with a "%" followed by hexadecimal digits.
+- URLs cannot contain spaces. URL encoding normally replaces a space with a plus (+) sign, or %20.
+
+Url encoding reference: https://www.w3schools.com/tags/ref_urlencode.asp
+
+# XHTML <a id="8"></a>
+XHTML is a stricter, more XML-based version of HTML.
+- XHTML stands for EXtensible HyperText Markup Language
+- XHTML is a stricter, more XML-based version of HTML
+- XHTML is HTML defined as an XML application
+- XHTML is supported by all major browsers
+
+Why
+- XML is a markup language where all documents must be marked up correctly. In addition, browsers ignore errors in HTML pages, and try to display the website even if it has some errors in the markup. So XHTML comes with a much stricter error handling.
+- XHTML was developed to make HTML more extensible and flexible to work with other data formats (such as XML).
+
+The Most Important Differences from HTML
+- <!DOCTYPE> is mandatory
+- The xmlns attribute in `<html>` is mandatory
+- `<html>`, `<head>`, `<title>`, and `<body>` are mandatory
+- Elements must always be properly nested
+- Elements must always be closed
+- Elements must always be in lowercase
+- Attribute names must always be in lowercase
+- Attribute values must always be quoted
+- Attribute minimization is forbidden
+
+# HTML Forms <a id="9"></a>
+An HTML form is used to collect user input. The user input is most often sent to a server for processing.
+
+1. The HTML `<form>` element is used to create an HTML form for user input:
+   - The `<form>` element is a container for different types of input elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc.
+2. The HTML `<input>` element is the most used form element. An `<input>` element can be displayed in many ways, depending on the type attribute.
+![input_types](/HTML/input_types.png)
